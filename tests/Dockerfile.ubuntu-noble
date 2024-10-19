@@ -19,7 +19,7 @@
 # docker build -t sysbox-test .
 #
 
-FROM ubuntu:jammy
+FROM ubuntu:noble
 
 # K8s version for k8s-in-docker (i.e., this should be equal or greater than the
 # version of K8s running inside the k8s-in-docker container).
@@ -32,7 +32,7 @@ ARG target_arch
 ENV TARGET_ARCH=${target_arch}
 
 # CRI-O & crictl version for testing sysbox pods; should match K8s version.
-ARG crio_version=1.28
+ARG crio_version=1.30
 ARG crio_os=xUbuntu_22.04
 ARG crictl_version=v1.28.0
 
@@ -119,7 +119,7 @@ RUN go env -w GONOSUMDB=/root/nestybox && \
 
 # Add a dummy user for the rootless integration tests; needed by the
 # `git clone` operations below.
-RUN useradd -u1000 -m -d/home/rootless -s/bin/bash rootless
+RUN useradd -u1001 -m -d/home/rootless -s/bin/bash rootless
 
 # install bats
 RUN cd /tmp \
