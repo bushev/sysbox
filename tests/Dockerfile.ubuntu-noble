@@ -32,7 +32,7 @@ ARG target_arch
 ENV TARGET_ARCH=${target_arch}
 
 # CRI-O & crictl version for testing sysbox pods; should match K8s version.
-ARG crio_version=1.30
+ARG crio_version=1.28
 ARG crio_os=xUbuntu_22.04
 ARG crictl_version=v1.28.0
 
